@@ -45,7 +45,7 @@
             <p class="temperature__text">+23</p>
             <h3 class="temperature__header">За окном</h3>
             <p class="temperature__text">+19</p>          
-          <div>
+          </div>
         </div>  
         <ul class="current-state__list schedule">
           <li class="schedule__item item-block">
@@ -194,6 +194,48 @@
         </li>    
       </ul>
     </section>
+<!-- ======================== popups ============================ -->	
+
+	<section class="popup cooler">
+	  <form class="popup__form">
+		<div class="popup-container">
+		  <div class="popup-header">
+	        <h2 class="popup__header">Elgato Eve Degree Connected</h2>
+	        <!--<p class="popup__text popup-status">Включено</p>-->
+		    <p class="popup__text popup-value">+23</p>
+			<div class="popup-icon"></div>
+		  </div>
+	      <ul class="popup__list">
+	        <li class="popup__item">
+			  <input type="radio" class="popup__input visually-hidden" id="manual" name="popup" checked>
+	   	      <label class="popup__label" for="manual">Вручную</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="cold" name="popup">
+			  <label class="popup__label" for="cold">Холодно</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="warm" name="popup">
+			  <label class="popup__label" for="warm">Тепло</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="hot" name="popup">
+			  <label class="popup__label" for="hot">Жарко</label>
+		    </li>		
+	      </ul>
+	      <div class="popup__value-block">
+		    <p class="value-block popup-min">–10</p>
+		    <div class="value-block__pin"></div>
+		    <p class="value-block popup-max">+30</p>
+	      </div>
+		</div>
+		<div class="popup-buttons-container">
+		  <input type="submit" class="popup__button popup-submit-button" value="Применить">
+		  <input type="button" class="popup__button popup-close-button" value="Закрыть">
+		</div>
+	  </form>	
+	</section>
+	
   </main>
   <footer class="footer">
     <ul class="footer__list">
