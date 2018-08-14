@@ -8,6 +8,7 @@
   <title>Яндекс дом</title>
 </head>
 <body>
+  <div class="popup-overlay"></div>
   <header class="main-header">
     <nav class="site-navigation">
       <ul class="site-navigation__list">
@@ -40,11 +41,11 @@
         <div class="left-side">
           <h3 class="greeting-message">Привет, Геннадий!</h3>
           <p class="current-state__text general-state">Двери и окна закрыты, сигнализация включена.</p>
-          <div class="temperature">
+          <div class="temperature rain">
             <h3 class="temperature__header">Дома</h3>
-            <p class="temperature__text">+23</p>
             <h3 class="temperature__header">За окном</h3>
-            <p class="temperature__text">+19</p>          
+			<p class="temperature__text">+23</p>
+            <p class="temperature__text">+19</p>
           </div>
         </div>  
         <ul class="current-state__list schedule">
@@ -110,7 +111,7 @@
             <p class="favorites__item-text item-text">Начнётся в 18:00</p> 
           </div>
         </li>
-        <li class="favorites__item item-block">
+        <li class="favorites__item item-block wrm-flr">
           <div class="favorites__icon icon temperature-on"></div>
           <div class="item-container">
             <h3 class="favorites__item-header item-header">Сделать пол тёплым во всей квартире</h3>
@@ -143,7 +144,7 @@
         </nav>
       </div>
       <ul class="features__list">
-        <li class="features__item item-block">
+        <li class="features__item item-block xmi-bulb">
           <div class="features__icon icon light-on"></div>
           <div class="item-container">
             <h3 class="features__item-header item-header">Xiaomi Yeelight LED Smart Bulb</h3>
@@ -157,7 +158,7 @@
             <p class="features__item-text item-text">Включится в 17:00</p> 
           </div>  
         </li>
-        <li class="features__item item-block">
+        <li class="features__item item-block eve-deg">
           <div class="features__icon icon temperature-off"></div>
           <div class="item-container">
             <h3 class="features__item-header item-header">Elgato Eve Degree Connected</h3>
@@ -179,10 +180,10 @@
           </div>
         </li>
         <li class="features__item item-block">
-          <div class="features__icon icon light-on"></div>
+          <div class="features__icon icon light-off"></div>
           <div class="item-container">
-            <h3 class="features__item-header item-header">Xiaomi Mi Air Purifier 2S</h3>
-            <p class="features__item-text item-text">Включено</p> 
+            <h3 class="features__item-header item-header">Philips Zhirui</h3>
+            <p class="features__item-text item-text">Выключено</p> 
           </div>
         </li>
         <li class="features__item item-block">
@@ -196,19 +197,18 @@
     </section>
 <!-- ======================== popups ============================ -->	
 
-	<section class="popup cooler">
+	<section class="popup eve-deg-popup">
 	  <form class="popup__form">
 		<div class="popup-container">
-		  <div class="popup-header">
+		  <div class="popup-header-container temp-on-container">
 	        <h2 class="popup__header">Elgato Eve Degree Connected</h2>
-	        <!--<p class="popup__text popup-status">Включено</p>-->
-		    <p class="popup__text popup-value">+23</p>
-			<div class="popup-icon"></div>
+	        <p class="popup__text popup-value">+23</p>
 		  </div>
+		  <p class="popup__text popup-status">Включено</p>
 	      <ul class="popup__list">
 	        <li class="popup__item">
-			  <input type="radio" class="popup__input visually-hidden" id="manual" name="popup" checked>
-	   	      <label class="popup__label" for="manual">Вручную</label>
+			  <input type="radio" class="popup__input visually-hidden" id="manual-temp" name="popup" checked>
+	   	      <label class="popup__label" for="manual-temp">Вручную</label>
 		    </li>
 	        <li class="popup__item">
 		      <input type="radio" class="popup__input visually-hidden" id="cold" name="popup">
@@ -230,8 +230,78 @@
 	      </div>
 		</div>
 		<div class="popup-buttons-container">
-		  <input type="submit" class="popup__button popup-submit-button" value="Применить">
-		  <input type="button" class="popup__button popup-close-button" value="Закрыть">
+		  <label class="popup__btn-label">
+		    <input type="submit" class="popup__button popup-submit-button" value="Применить" >
+		  </label>
+		  <label class="popup__btn-label">
+		    <input type="button" class="popup__button popup-close-button" value="Закрыть">
+		  </label>
+		</div>
+	  </form>	
+	</section>
+	
+    <section class="popup xmi-bulb-popup">
+	  <form class="popup__form">
+		<div class="popup-container">
+		  <div class="popup-header-container light-on-container">
+	        <h2 class="popup__header">Xiaomi Yeelight LED Smart Bulb</h2>
+	        <p class="popup__text popup-value"></p>
+		  </div>
+		  <p class="popup__text popup-status">Включится в 17:00</p>
+	      <ul class="popup__list">
+	        <li class="popup__item">
+			  <input type="radio" class="popup__input visually-hidden" id="manual-light" name="popup" checked>
+	   	      <label class="popup__label" for="manual-light">Вручную</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="day-light" name="popup">
+			  <label class="popup__label" for="day-light">Дневной свет</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="evenig-light" name="popup">
+			  <label class="popup__label" for="evenig-light">Вечерний свет</label>
+		    </li>
+	        <li class="popup__item">
+		      <input type="radio" class="popup__input visually-hidden" id="sunrise" name="popup">
+			  <label class="popup__label" for="sunrise">Рассвет</label>
+		    </li>		
+	      </ul>
+	      <div class="popup__value-block light-value-block">
+		    <p class="value-block popup-min light-value-min"></p>
+		    <div class="value-block__pin"></div>
+		    <p class="value-block popup-max light-value-max"></p>
+	      </div>
+		</div>
+		<div class="popup-buttons-container">
+		  <label class="popup__btn-label">
+		    <input type="submit" class="popup__button popup-submit-button" value="Применить" >
+		  </label>
+		  <label class="popup__btn-label">
+		    <input type="button" class="popup__button popup-close-button" value="Закрыть">
+		  </label>
+		</div>
+	  </form>	
+	</section>
+	
+	<section class="popup wrm-flr-popup">
+	  <form class="popup__form">
+		<div class="popup-container wrm-flr-popup-container">
+		  <div class="popup-header-container wrm-flr-container temp-on-container">
+	        <h2 class="popup__header">Xiaomi Warm Floor</h2>
+	        <p class="popup__text popup-value">+23</p>
+		  </div>
+		  <p class="popup__text popup-status">Включено</p>
+	      <div class="wrm-flr-block">
+		    <p class="wrm-flr-value">+23</p>
+		  </div>
+		</div>
+		<div class="popup-buttons-container">
+		  <label class="popup__btn-label">
+		    <input type="submit" class="popup__button popup-submit-button" value="Применить" >
+		  </label>
+		  <label class="popup__btn-label">
+		    <input type="button" class="popup__button popup-close-button" value="Закрыть">
+		  </label>
 		</div>
 	  </form>	
 	</section>
@@ -254,5 +324,6 @@
     </ul>
     <p class="about-company">© 2001–2017  ООО «Яндекс»</p>
   </footer>
+  <script src="js/script.js"></script>
 </body>
 </html>
