@@ -1,6 +1,7 @@
 var link = document.querySelector(".item-block");
 var popup = document.querySelector(".popup");
-var close = popup.querySelector(".popup-close-button");
+//var currentPopup = document.querySelector(".popup-show");
+var close = document.querySelector(".popup-close-button");
 var overlay = document.querySelector(".popup-overlay");
 
 link.addEventListener("click", function (evt) {
